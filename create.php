@@ -12,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stock = $_POST['stock'];
 
     try {
-        $sql = "INSERT INTO libro (nombre, autor, descripcion, editorial, precio, stock) VALUES (:nombre,:autor, :descripcion, editorial:, :precio, :stock)";
+        $sql = "INSERT INTO libro (titulo, autor, descripcion, editorial, precio, stock) VALUES (:titulo, :autor, :descripcion, :editorial, :precio, :stock)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['nombre' => $nombre, 'autor' => $autor, 'descripcion' => $descripcion, 'editorial' => $editorial, 'precio' => $precio, 'stock' => $stock]);
+        $stmt->execute(['titulo' => $nombre, 'autor' => $autor, 'descripcion' => $descripcion, 'editorial' => $editorial, 'precio' => $precio, 'stock' => $stock]);
 
         $message = 'libro añadido con éxito!';
     } catch (PDOException $e) {
